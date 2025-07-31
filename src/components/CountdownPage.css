@@ -1,0 +1,113 @@
+.countdown-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.countdown-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(32px, 10vw, 50px);
+  color: #d63384;
+  margin-bottom: 40px;
+}
+
+.timer-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap; /* Agar rapi di layar kecil */
+}
+
+.time-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 700;
+  color: #f279a7;
+  line-height: 1;
+}
+
+.time-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Tombol kembali sama seperti di halaman Final */
+.home-button {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 12px 25px;
+  background-color: #f279a7;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-button:hover {
+  background-color: #d63384;
+  transform: scale(1.05);
+}
+
+.button-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column; /* Tombol disusun vertikal */
+  gap: 15px; /* Jarak antar tombol */
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Style umum untuk semua tombol */
+.home-button,
+.whatsapp-button {
+  display: inline-block;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%; /* Tombol memenuhi lebar wadah */
+  box-sizing: border-box;
+}
+
+/* Style khusus untuk tombol kembali */
+.home-button {
+  background-color: #a0a0a0; /* Warna abu-abu */
+}
+
+.home-button:hover {
+  background-color: #888;
+  transform: scale(1.05);
+}
+
+/* Style khusus untuk tombol WhatsApp */
+.whatsapp-button {
+  background-color: #c439ab; /* Warna hijau khas WhatsApp */
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Warna hijau lebih gelap */
+  transform: scale(1.05);
+}
