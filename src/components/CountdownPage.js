@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'; // 1. Impor use
 import { Link } from 'react-router-dom';
 import './CountdownPage.css';
 
+const targetDate = new Date('2025-08-03T00:00:00'); // Jangan lupa ganti tanggal ini jika perlu
+
 function CountdownPage() {
   // --- BAGIAN PENTING UNTUK DIUBAH ---
   // 1. Ganti dengan nomor WhatsApp tujuanmu.
@@ -14,8 +16,6 @@ function CountdownPage() {
 
   const encodedMessage = encodeURIComponent(templateMessage);
   const whatsAppLink = `https://wa.me/${whatsAppNumber}?text=${encodedMessage}`;
-
-  const targetDate = new Date('2025-08-03T00:00:00'); // Jangan lupa ganti tanggal ini jika perlu
 
   const calculateTimeLeft = useCallback(() => {
     const difference = +targetDate - +new Date();
@@ -32,7 +32,8 @@ function CountdownPage() {
       timeLeft = { hari: 0, jam: 0, menit: 0, detik: 0 };
     }
     return timeLeft;
-  }, []); // Biarkan array kosong karena tidak ada dependensi dari props/state
+    // TAMBAHKAN 'targetDate' DI SINI
+  }, []);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
