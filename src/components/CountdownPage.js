@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; // 1. Impor useCallback
 import { Link } from 'react-router-dom';
 import './CountdownPage.css';
 
@@ -17,7 +17,7 @@ function CountdownPage() {
 
   const targetDate = new Date('2025-08-03T00:00:00'); // Jangan lupa ganti tanggal ini jika perlu
 
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const difference = +targetDate - +new Date();
     let timeLeft = {};
 
@@ -32,7 +32,7 @@ function CountdownPage() {
       timeLeft = { hari: 0, jam: 0, menit: 0, detik: 0 };
     }
     return timeLeft;
-  };
+  }, []); // Biarkan array kosong karena tidak ada dependensi dari props/state
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -40,14 +40,15 @@ function CountdownPage() {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
+
     return () => clearInterval(timer);
-  }, []);
+    // 3. Tambahkan calculateTimeLeft sebagai dependency
+  }, [calculateTimeLeft]);
 
   return (
     <div className="countdown-layout">
       <h1 className="countdown-title">Menghitung Hari Spesial...</h1>
       <div className="timer-container">
-        {/* ... time boxes ... */}
         <div className="time-box">
           <div className="time-value">{timeLeft.hari || '0'}</div>
           <div className="time-label">Hari</div>
